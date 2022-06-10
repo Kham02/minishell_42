@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:50:38 by estrong           #+#    #+#             */
-/*   Updated: 2022/06/09 22:03:00 by estrong          ###   ########.fr       */
+/*   Updated: 2022/06/10 22:55:52 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ size_t	size_list(void)
 
 	count = 0;
 	lst = info.envp;
-		write(1, "fu\n", 3);
 	while (lst)
 	{
+		// write(1, "fu\n", 3);
 		count++;
 		lst = lst->next;
 	}
@@ -42,6 +42,7 @@ t_envp	*list_new_envp(char *envp)
 	else
 		list->val = get_val_envp(envp);
 	list->next = NULL;
+	// print(list);
 	return (list);
 }
 
@@ -54,7 +55,8 @@ void	list_add_back_envp(t_envp *envp, t_envp *new)
 		return ;
 	while (list)
 		list = list->next;
-	list->next = new;
+	list = new;
+	// write(1, "fu\n", 3);
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -65,4 +67,16 @@ int	ft_strcmp(char *s1, char *s2)
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
 	return (s1[i] - s2[i]);
+}
+
+void	print(t_envp *envp)
+{
+	t_envp	*lst;
+
+	lst = envp;
+	while (lst)
+	{
+		printf("%s, %s\n", lst->variable, lst->val);
+		lst = lst->next;
+	}
 }

@@ -47,8 +47,9 @@ int		get_str(char *str);
 char	**find_pwd(char **envp);
 void	pwd_command(char *str);
 void	echo_command(char *str);
-void	built_cmd(char *str, int r);
-char	*b_unset(char *str);
+char	**built_cmd(char *str, int r, char **envp);
+char	**malloc_envp(char **envp);
+// char	*b_unset(char *str);
 
 /* ~~~~~~~~~~~~~~*/
 char	*get_val_shlvl(char *envp);
@@ -58,6 +59,11 @@ int		envp_to_lst(char **envp);
 size_t	size_list(void);
 t_envp	*list_new_envp(char *envp);
 void	list_add_back_envp(t_envp *envp, t_envp *new);
-int	ft_strcmp(char *s1, char *s2);
+
+int		ft_strcmp(char *s1, char *s2);
+void	print(t_envp *envp);
+void	b_env(char **envp);
+char	**b_unset(char *str, char **envp);
+char	**del_var(char *str, char **envp);
 
 #endif

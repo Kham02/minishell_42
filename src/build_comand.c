@@ -18,17 +18,23 @@
 
 // ** Определяем билд команду ** //
 
-void	built_cmd(char *str, int r)
+char	**built_cmd(char *str, int r, char **envp)
 {
+	printf("\n\n%d\n\n", r);
 	if (r == 1)
+	{
 		cd(str);
+		envp = find_pwd(envp);
+	}
 	if (r == 2)
 		pwd_command(str);
 	if (r == 3)
 		echo_command(str);
 	if (r == 4)
-		b_unset(str);
-	// if (r == 5)
+		envp = b_unset(str, envp);
+	if (r == 5)
+		b_env(envp);
+	return (envp);
 	// if (r == 6)
 }
 

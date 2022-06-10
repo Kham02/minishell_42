@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:50:48 by estrong           #+#    #+#             */
-/*   Updated: 2022/06/09 22:01:04 by estrong          ###   ########.fr       */
+/*   Updated: 2022/06/10 22:55:35 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,20 @@ char	*get_var_envp(char *envp)
 int	envp_to_lst(char **envp)
 {
 	size_t	i;
+	t_envp	*lst;
 
 	if (!envp)
 		return (1);
 	i = 0;
 	info.envp = NULL;
-	while (envp[i])
+	lst = info.envp;
+	while (envp[i] && lst)
 	{
 		// write(1, "fu\n", 3);
-		list_add_back_envp(info.envp, list_new_envp(envp[i]));
+		list_add_back_envp(lst, list_new_envp(envp[i]));
 		i++;
+		lst = lst->next;
+		// write(1, "de\n", 3);
 	}
 	return (0);
 }
