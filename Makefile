@@ -25,7 +25,7 @@ READY	=	Minishell is ready
 #READYB	=	Checker is ready
 SWEPT	=	Directory was cleaned
 
-FILES = src/main.c	src/build_comand.c	src/envp_parser.c	src/b_unset.c	src/envp_to_list.c	src/utils_envp.c
+FILES = src/main.c	src/build_comand.c	src/envp_parser.c	src/b_unset.c
 					
 OBJS = $(FILES:%.c=%.o)
 

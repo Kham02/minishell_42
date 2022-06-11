@@ -34,8 +34,9 @@ char	**built_cmd(char *str, int r, char **envp)
 		envp = b_unset(str, envp);
 	if (r == 5)
 		b_env(envp);
+	if (r == 6)
+		exit_comand(str);
 	return (envp);
-	// if (r == 6)
 }
 
 // ** Выполнение функции CD ** //
@@ -102,6 +103,29 @@ void	echo_command(char *str)
 	else
 		printf("\n");
 	free_str(check);
+}
+
+void	*exit_comand(char *str)
+{
+	size_t	i;
+
+	i = 4;
+	if (str[i] && str[i] != ' ')
+	{
+		ft_putstr_fd("minishell: \n", 1);
+		ft_putstr_fd("exit : command not found", 1);
+		return (0);
+	}
+	while (str[++i] == ' ');
+	if (str[i] && str[i] != ' ')
+	{
+		ft_putstr_fd("minishell: \n", 1);
+		ft_putstr_fd("exit\n", 1);
+		ft_putstr_fd("exit:  : numeric argument required", 1);
+		exit(255);
+	}
+	ft_putstr_fd("exit\n", 1);
+	exit(EXIT_SUCCESS);
 }
 
 // int	echo_cmd(char **envp, char *str)

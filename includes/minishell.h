@@ -24,14 +24,6 @@
 # define SHCL "\x1b[32m"
 # define END "\x1b[0m"
 
-typedef struct s_envp
-{
-	size_t			order;
-	char			*variable;
-	char			*val;
-	struct s_envp	*next;
-}t_envp;
-
 typedef struct s_info
 {
 	char			*str;
@@ -49,21 +41,13 @@ void	pwd_command(char *str);
 void	echo_command(char *str);
 char	**built_cmd(char *str, int r, char **envp);
 char	**malloc_envp(char **envp);
-// char	*b_unset(char *str);
 
 /* ~~~~~~~~~~~~~~*/
-char	*get_val_shlvl(char *envp);
-char	*get_val_envp(char *envp);
-char	*get_var_envp(char *envp);
-int		envp_to_lst(char **envp);
-size_t	size_list(void);
-t_envp	*list_new_envp(char *envp);
-void	list_add_back_envp(t_envp *envp, t_envp *new);
 
 int		ft_strcmp(char *s1, char *s2);
-void	print(t_envp *envp);
 void	b_env(char **envp);
 char	**b_unset(char *str, char **envp);
 char	**del_var(char *str, char **envp);
+void	*exit_comand(char *str);
 
 #endif
