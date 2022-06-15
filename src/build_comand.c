@@ -20,7 +20,6 @@
 
 char	**built_cmd(char *str, int r, char **envp)
 {
-	printf("\n\n%d\n\n", r);
 	if (r == 1)
 	{
 		cd(str);
@@ -119,9 +118,8 @@ void	*exit_comand(char *str)
 	while (str[++i] == ' ');
 	if (str[i] && str[i] != ' ')
 	{
-		ft_putstr_fd("minishell: \n", 1);
 		ft_putstr_fd("exit\n", 1);
-		ft_putstr_fd("exit:  : numeric argument required", 1);
+		ft_putstr_fd("exit: : numeric argument required", 1);
 		exit(255);
 	}
 	ft_putstr_fd("exit\n", 1);

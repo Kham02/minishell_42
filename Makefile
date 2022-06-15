@@ -10,7 +10,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-RFLAGS = -lreadline -ltermcap -g -L/Users/mmago/.brew/Cellar/readline/8.1.2/lib/ -I/Users/mmago/.brew/Cellar/readline/8.1.2/include
+RFLAGS = -lreadline -ltermcap -g -L/Users/estrong/.brew/Cellar/readline/8.1.2/lib/ -I/Users/estrong/.brew/Cellar/readline/8.1.2/include
 
 RM = rm -f
 
@@ -25,7 +25,7 @@ READY	=	Minishell is ready
 #READYB	=	Checker is ready
 SWEPT	=	Directory was cleaned
 
-FILES = src/main.c	src/build_comand.c	src/envp_parser.c	src/b_unset.c
+FILES = src/main.c	src/build_comand.c	src/envp_parser.c	src/b_unset.c	src/envp_to_list.c	src/utils_envp.c
 					
 OBJS = $(FILES:%.c=%.o)
 

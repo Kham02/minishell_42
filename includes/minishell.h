@@ -26,8 +26,8 @@
 
 typedef struct s_info
 {
-	char			*str;
-	struct s_envp	*envp;
+	int	status;
+	// char			*str;
 }t_info;
 
 t_info	info;
